@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeolocationService } from '../../service/geolocation.service';
 
 @Component({
   selector: 'app-weather-widget-list',
@@ -10,39 +11,27 @@ export class WeatherWidgetListComponent implements OnInit {
   widgetNumber: number = 5;
 
   widgets: Array<any> = [
-    {
-      'city': 'London'
-    },
-    {
-      'city': 'Lviv'
-    },
-    {
-      'city': 'Zurich'
-    },
-    {
-      'city': 'Rome'
-    },
-    {
-      'city': 'Barcelona'
-    }
+    {'city': 'London'},
+    {'city': 'Lviv'},
+    {'city': 'Zurich'},
+    {'city': 'Rome'},
+    {'city': 'Barcelona'}
   ];
 
-  constructor() { }
+  constructor(private geolocationService: GeolocationService) { }
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(location => {
-      this.widgets.push(
-        {
-          'city': 'Current Position',
-          'lat': location.coords.latitude,
-          'lon': location.coords.longitude
+      this.geolocationService.getcityNameByLatLon(location.coords.latitude, location.coords.longitude).subscribe(
+        res => {
+          this.widgets.push({'city': res['address'].city});
+        },
+        error => {
+          // do nothing, don't show geolocation weather
         }
       );
+    }, () => {
+
     });
   }
-
-  goToForecast(widgetData) {
-    console.log(widgetData);
-  }
-
 }

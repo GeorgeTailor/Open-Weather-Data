@@ -22,11 +22,6 @@ export class WeatherService {
     return this.http.get(url);
   }
 
-  getCurrentWeatherDataForLatLon(lat, lon) {
-    const url = this.apiEndpoints.currentWeather + '?units=metric&lat=' + lat + '&lon=' + lon + this.apiKeyParam;
-    return this.http.get(url);
-  }
-
   getForecastWeatherForCity(cityName: string) {
     const url = this.apiEndpoints.forecastWeather + '?units=metric&q=' + cityName + this.apiKeyParam;
     return this.http.get(url);

@@ -19,13 +19,7 @@ export class WeatherWidgetComponent implements OnInit {
 
   ngOnInit() {
     this.loadingError = false;
-    let sub;
-    if (this.widgetData.lat && this.widgetData.lon) {
-      sub = this.getGeoPosInfo();
-    } else if (this.widgetData.city) {
-      sub = this.getCityInfo();
-    }
-    sub.pipe(
+    this.getCityInfo().pipe(
       finalize(() => this.loading = false)
     ).subscribe(
       res => {
@@ -35,16 +29,11 @@ export class WeatherWidgetComponent implements OnInit {
       error => {
         console.log(error);
         this.loadingError = true;
-      }
-    );
+      });
   }
 
   getCityInfo() {
     return this.weatherService.getCurrentWeatherDataForCity(this.widgetData.city);
-  }
-
-  getGeoPosInfo() {
-    return this.weatherService.getCurrentWeatherDataForLatLon(this.widgetData.lat, this.widgetData.lon);
   }
 
 }

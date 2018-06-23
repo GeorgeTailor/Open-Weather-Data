@@ -1,3 +1,36 @@
-<p>
-  city-forecast works!
-</p>
+<app-loader class="loader" *ngIf="loading"></app-loader>
+
+<div class="city-weather-forecast" *ngIf="!loading && !loadingError">
+    <header class="forecast-header">
+      {{weatherData.city.name}}
+    </header>
+    <div class="forecast-content">
+      <div *ngFor="let el of weatherData.list" class="data-row">
+        <div class="main-info">
+          <div>{{el.dt}} </div>
+          <div>{{el.main.temp}} ℃ </div>
+          <div>{{el.weather[0].description}} </div>
+        </div>
+        <div class="details">
+          <div class="humidity">
+            <span>Humidity </span>
+            <span>{{el.main.humidity}} %</span>
+          </div>
+          <div class="wind">
+            <span>Wind </span>
+            <span>{{el.wind.speed}} m/s</span>
+          </div>
+          <div class="pressure">
+              <span>Pressure </span>
+            <span>{{el.main.pressure}} hPa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="forecast-footer">
+    </footer>
+</div>
+
+<div *ngIf="loadingError" class="error">
+    <span>Could not load weather data, please try again later</span>
+</div>

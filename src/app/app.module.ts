@@ -10,6 +10,8 @@ import { CityForecastComponent } from './component/city-forecast/city-forecast.c
 import { WeatherWidgetListComponent } from './component/weather-widget-list/weather-widget-list.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
+import { GeolocationService } from './service/geolocation.service';
+import { WeatherGridRowComponent } from './component/weather-grid-row/weather-grid-row.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router';
     LoaderComponent,
     CityForecastComponent,
     WeatherWidgetListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    WeatherGridRowComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   providers: [
-    
+    GeolocationService
   ],
   bootstrap: [AppComponent]
 })

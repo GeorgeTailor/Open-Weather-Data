@@ -26,22 +26,18 @@ export class CityForecastComponent implements OnInit {
       this.weatherService.getForecastWeatherForCity(params.name).pipe(
         finalize(() => this.loading = false)
       ).subscribe(
-        res => {
-          this.processResponse(res);
-        },
-        error => {
-          this.loadingError = true;
-        }
-      );;
+        res => {this.processResponse(res);},
+        error => {this.loadingError = true;}
+      );
     });
   }
 
   processResponse(res) {
-    console.log(res);
     res.list.forEach(element => {
-      console.log(new Date(element.dt_txt));
+      const date = new Date(element.dt_txt).toLocaleString('en-GB');
+      element.dt = date.substring(0, date.length - 3);
     });
     this.weatherData = res;
+    console.log(this.weatherData);
   }
-
 }
