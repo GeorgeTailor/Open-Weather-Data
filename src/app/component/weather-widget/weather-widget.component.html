@@ -1,0 +1,18 @@
+<div class="widget">
+  <header class="widget-header">
+    {{widgetData.city}}
+  </header>
+  <div class="widget-content">
+    <div class="widget-content-holder" *ngIf="!loading && !loadingError">
+      <div class="widget-line temperature">
+        <span class="widget-content-value temp-value">{{weatherData.main.temp}} C</span>
+      </div>
+      <div class="widget-line wind-strength">
+        <span class="widget-content-value wind-value">{{weatherData.wind.speed}} meter/sec</span>
+      </div>
+    </div>
+  </div>
+  <footer class="widget-footer">
+    Forecast <div class="arrow-right"></div>
+  </footer>
+</div>
