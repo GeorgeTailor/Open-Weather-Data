@@ -10,19 +10,32 @@
 
     .widget-header {
         width: 100%;
-        height: 35px;
+        height: 50px;
         text-align: center;
-        line-height: 35px;
-        background: #074bba;
-        color: white;
+        line-height: 50px;
+        color: black;
+        font-size: 2rem;
+        font-weight: 700;
     }
 
     .widget-content {
         width: 100%;
-        height: 210px;
+        height: 190px;
         text-align: center;
         display: flex;
         flex-direction: column;
+
+        .loader {
+            line-height: 220px;
+        }
+
+        .error {
+            font-size: 1.3rem;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
 
         .widget-line {
             height: 50px;
@@ -33,12 +46,34 @@
                 flex: 2;
             }
         }
+        .weather-description {
+            font-size: 15px;
+            height: 15px;
+            line-height: 15px;
+        }
+
+        .weather-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20px,140px));
+            grid-gap: 10px;
+            justify-content: center;
+
+            .grid-el-label {
+                display: block;
+                text-transform: uppercase;
+            }
+            .grid-el-value {
+                display: block;
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
     }
 
     .widget-footer {
         width: 100%;
-        height: 35px;
-        line-height: 35px;
+        height: 40px;
+        line-height: 40px;
         background: black;
         color: white;
         text-align: center;

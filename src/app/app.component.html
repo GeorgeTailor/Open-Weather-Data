@@ -1,9 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="content">
-  <div class="widgets-holder">
-    <div *ngFor="let widgetData of widgets" class="single-widget">
-      <app-weather-widget [widgetData]="widgetData"></app-weather-widget>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
 

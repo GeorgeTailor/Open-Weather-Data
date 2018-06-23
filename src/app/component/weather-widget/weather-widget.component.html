@@ -3,13 +3,35 @@
     {{widgetData.city}}
   </header>
   <div class="widget-content">
+    <app-loader class="loader" *ngIf="loading"></app-loader>
     <div class="widget-content-holder" *ngIf="!loading && !loadingError">
+      <div class="widget-line weather-description">
+          <span class="widget-content-value">{{weatherData.weather[0].description}}</span>
+      </div>
       <div class="widget-line temperature">
-        <span class="widget-content-value temp-value">{{weatherData.main.temp}} C</span>
+        <span class="widget-content-value temp-value">{{weatherData.main.temp}} ℃</span>
       </div>
-      <div class="widget-line wind-strength">
-        <span class="widget-content-value wind-value">{{weatherData.wind.speed}} meter/sec</span>
+      <div class="weather-details-grid">
+        <div class="humidity">
+          <span class="grid-el-label">Humidity</span>
+          <span class="grid-el-value">{{weatherData.main.humidity}} %</span>
+        </div>
+        <div class="clouds">
+          <span class="grid-el-label">Clouds</span>
+          <span class="grid-el-value">{{weatherData.clouds.all}} %</span>
+        </div>
+        <div class="wind">
+          <span class="grid-el-label">Wind</span>
+          <span class="grid-el-value">{{weatherData.wind.speed}} m/s</span>
+        </div>
+        <div class="pressure">
+          <span class="grid-el-label">Pressure</span>
+          <span class="grid-el-value">{{weatherData.main.pressure}} hPa</span>
+        </div>
       </div>
+    </div>
+    <div *ngIf="loadingError" class="error">
+      <span>Could not load weather data, please try again later</span>
     </div>
   </div>
   <footer class="widget-footer">
