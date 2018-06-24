@@ -1,32 +1,33 @@
 <div class="widget">
   <header class="widget-header">
-    {{widgetData.city}}
+    {{widgetData.name || widgetData.dt}}
   </header>
   <div class="widget-content">
     <app-loader class="loader" *ngIf="loading"></app-loader>
     <div class="widget-content-holder" *ngIf="!loading && !loadingError">
-      <div class="widget-line weather-description">
-          <span class="widget-content-value">{{weatherData.weather[0].description}}</span>
+      <div class="weather-description">
+        <div class="widget-content-value">{{widgetData.weather[0].description}}</div>
+        <div class="widget-content-value temp-value">{{widgetData.main.temp}} ℃</div>
       </div>
-      <div class="widget-line temperature">
-        <span class="widget-content-value temp-value">{{weatherData.main.temp}} ℃</span>
+      <div class="weather-image">
+        <i class="wi" [ngClass]="1 === 1 ? weatherCondition : ''"></i>
       </div>
       <div class="weather-details-grid">
         <div class="humidity">
           <span class="grid-el-label">Humidity</span>
-          <span class="grid-el-value">{{weatherData.main.humidity}} %</span>
+          <span class="grid-el-value">{{widgetData.main.humidity}} %</span>
         </div>
         <div class="clouds">
           <span class="grid-el-label">Clouds</span>
-          <span class="grid-el-value">{{weatherData.clouds.all}} %</span>
+          <span class="grid-el-value">{{widgetData.clouds.all}} %</span>
         </div>
         <div class="wind">
           <span class="grid-el-label">Wind</span>
-          <span class="grid-el-value">{{weatherData.wind.speed}} m/s</span>
+          <span class="grid-el-value">{{windDirection}} {{widgetData.wind.speed}} m/s</span>
         </div>
         <div class="pressure">
           <span class="grid-el-label">Pressure</span>
-          <span class="grid-el-value">{{weatherData.main.pressure}} hPa</span>
+          <span class="grid-el-value">{{widgetData.main.pressure}} hPa</span>
         </div>
       </div>
     </div>
@@ -34,7 +35,7 @@
       <span>Could not load weather data, please try again later</span>
     </div>
   </div>
-  <footer class="widget-footer">
+  <footer *ngIf="showButton" class="widget-footer">
     Forecast <div class="arrow-right"></div>
   </footer>
 </div>

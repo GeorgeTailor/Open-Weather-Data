@@ -11,7 +11,7 @@ import { WeatherWidgetListComponent } from './component/weather-widget-list/weat
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
 import { GeolocationService } from './service/geolocation.service';
-import { WeatherGridRowComponent } from './component/weather-grid-row/weather-grid-row.component';
+import { ForecastWidgetComponent } from './component/forecast-widget/forecast-widget.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { WeatherGridRowComponent } from './component/weather-grid-row/weather-gr
     CityForecastComponent,
     WeatherWidgetListComponent,
     PageNotFoundComponent,
-    WeatherGridRowComponent
+    ForecastWidgetComponent
   ],
   imports: [
     BrowserModule,

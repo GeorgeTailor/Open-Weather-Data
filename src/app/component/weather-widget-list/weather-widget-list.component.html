@@ -1,5 +1,5 @@
 <div class="widgets-holder">
   <div *ngFor="let widgetData of widgets" class="single-widget">
-    <app-weather-widget [routerLink]="['../city/forecast', widgetData.city]" [widgetData]="widgetData"></app-weather-widget>
+    <app-weather-widget [routerLink]="['../city/forecast', widgetData.name]" [widgetData]="widgetData"></app-weather-widget>
   </div>
 </div>

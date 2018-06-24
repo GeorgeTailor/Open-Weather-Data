@@ -12,6 +12,7 @@ export class WeatherService {
   constructor(private http: HttpClient) {
     this.apiEndpoints = {
       currentWeather: 'http://api.openweathermap.org/data/2.5/weather',
+      currentGroupWeather: 'http://api.openweathermap.org/data/2.5/group',
       forecastWeather: 'http://api.openweathermap.org/data/2.5/forecast'
     };
     this.apiKeyParam = '&APPID=802b1c394ea2b5a24cfc1b5e501ddcdf';
@@ -24,6 +25,11 @@ export class WeatherService {
 
   getForecastWeatherForCity(cityName: string) {
     const url = this.apiEndpoints.forecastWeather + '?units=metric&q=' + cityName + this.apiKeyParam;
+    return this.http.get(url);
+  }
+
+  getCurrentWeatherDataForCityGroup(...cityIds: number[]) {
+    const url = this.apiEndpoints.currentGroupWeather + '?id=' + cityIds + '&units=metric' + this.apiKeyParam;
     return this.http.get(url);
   }
 
