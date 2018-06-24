@@ -1,0 +1,43 @@
+.menu {
+    font-size: 20px;
+    position: fixed;
+    width: 200px;
+
+    transform: translateX(0);
+    &.hidden {
+        transform: translateX(-110%);
+    }
+    transition: transform 0.3s ease-in-out;
+    ul {
+        padding: 0;
+        margin: 0;
+        .menu-item{
+            list-style  : none;
+            padding:0;
+            margin:0;
+            border-bottom: 2px solid grey;
+            height: 30px;
+            line-height: 30px;
+            padding: 5px;
+
+            .close-btn {
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            transition: background-color 0.3s ease-in-out;
+            &:hover {
+                background-color: grey;
+                cursor: pointer;
+            }
+
+            &.blocked {
+                transition: none;
+                &:hover {
+                    background-color: transparent;
+                    cursor: initial;
+                }
+            }
+        }
+    }
+}

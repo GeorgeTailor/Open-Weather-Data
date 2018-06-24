@@ -1,5 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="content">
-  <router-outlet></router-outlet>
+<div class="app">
+
+  <header>
+    Weather app
+  </header>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+    <div class="loader-holder">
+      <app-loader class="loader" *ngIf="loadingRouteConfig"></app-loader>
+    </div>
+  </div>
+  <footer>
+    
+  </footer>
 </div>
 

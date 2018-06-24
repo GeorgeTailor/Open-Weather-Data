@@ -1,21 +1,27 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { WeatherWidgetListComponent } from "./component/weather-widget-list/weather-widget-list.component";
 import { PageNotFoundComponent } from "./component/page-not-found/page-not-found.component";
-import { CityForecastComponent } from "./component/city-forecast/city-forecast.component";
 
 const appRoutes: Routes = [
-    { 
-        path: 'city/forecast/:name', 
-        component: CityForecastComponent
+    {
+        path: 'weather',
+        loadChildren: "../app/weather/weather.module#WeatherModule"
     },
     {
-        path: 'main',
-        component: WeatherWidgetListComponent
+        path: 'map',
+        loadChildren: "../app/map/map.module#MapModule"
+    },
+    {
+        path: 'historical-data',
+        loadChildren: "../app/historical-data/historical-data.module#HistoricalDataModule"
+    },
+    {
+        path: 'favorites',
+        loadChildren: "../app/favorites/favorites.module#FavoritesModule"
     },
     {
         path: '',
-        redirectTo: '/main',
+        redirectTo: '/weather',
         pathMatch: 'full'
     },
     { path: '**', component: PageNotFoundComponent }
@@ -26,6 +32,9 @@ const appRoutes: Routes = [
         RouterModule.forRoot(
             appRoutes
         )
+    ],
+    exports: [
+        RouterModule
     ]
 })
 export class AppRoutingModule { }

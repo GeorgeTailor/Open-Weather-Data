@@ -1,0 +1,19 @@
+.loader {
+    justify-content: center;
+    display: flex;
+}
+
+.city-weather-forecast {
+    .forecast-header {
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    .forecast-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 300px));
+        grid-gap: 20px;
+        justify-content: center;
+        .forecast-widgets {
+        }
+    }
+}

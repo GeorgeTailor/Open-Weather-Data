@@ -5,12 +5,14 @@
   <div class="widget-content">
     <app-loader class="loader" *ngIf="loading"></app-loader>
     <div class="widget-content-holder" *ngIf="!loading && !loadingError">
-      <div class="weather-description">
-        <div class="widget-content-value">{{widgetData.weather[0].description}}</div>
-        <div class="widget-content-value temp-value">{{widgetData.main.temp}} ℃</div>
-      </div>
-      <div class="weather-image">
-        <i class="wi" [ngClass]="1 === 1 ? weatherCondition : ''"></i>
+      <div>
+        <div class="weather-description">
+          <div class="widget-content-value">{{widgetData.weather[0].description}}</div>
+          <div class="widget-content-value temp-value">{{widgetData.main.temp}} ℃</div>
+        </div>
+        <div class="weather-image">
+          <i class="wi" [ngClass]="1 === 1 ? weatherCondition : ''"></i>
+        </div>
       </div>
       <div class="weather-details-grid">
         <div class="humidity">

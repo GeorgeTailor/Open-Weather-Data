@@ -11,7 +11,7 @@ export class WeatherWidgetListComponent implements OnInit {
 
   widgetNumber: number = 5;
 
-  citiesIds = [2643743, 3128760, 2657896, 6539761, 3128760];
+  citiesIds = [2643743, 3128760, 2657896, 6539761, 703448];
 
   widgets: Array<any> = [
     // {'city': 'London'}, //2643743

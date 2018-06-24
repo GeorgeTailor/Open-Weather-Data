@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from '../../service/weather.service';
-import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-weather-widget',
