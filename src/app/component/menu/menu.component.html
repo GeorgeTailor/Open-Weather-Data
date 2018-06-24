@@ -2,7 +2,7 @@
   <ul>
     <li class="menu-item blocked">{{'Menu' | translate}} 
       <div class="close-btn" (click)="toggleMenu()">
-        X
+        <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
       </div>
     </li>
     <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">{{'weather' | translate}}</li>

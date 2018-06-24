@@ -5,7 +5,7 @@
     position: fixed;
     width: 200px;
     height: 100%;
-    border-right: 2px solid $textColor;
+    border-right: 1px solid $textColor;
 
     transform: translateX(0);
     &.hidden {
@@ -26,9 +26,10 @@
             line-height: 30px;
             background-color: $backgroundSecond;
             outline: none;
+            cursor: pointer;
 
             .close-btn {
-                display: inline-block;
+                display: flex;
                 position: absolute;
                 right: -40px;
                 top: 0px;
@@ -40,17 +41,32 @@
                 z-index: 2;
                 background-color: $backgroundFirst;
                 transition: background-color .3s ease-in-out;
+                cursor: pointer;
+                justify-content: center;
+                align-items: center;
+
+                .toggle-arrow {
+                    width: 5px;
+                    height: 5px;
+                    border-top: 1px solid black;
+                    border-right: 1px solid black;
+                    &.opened {
+                        transform: rotate(45deg);
+                    }
+                    &.closed {
+                        transform: rotate(-135deg);
+                    }
+                }
 
                 &:hover {
                     background-color: $backgroundSecond;
-                    cursor: pointer;
                 }
             }
 
             transition: background-color 0.3s ease-in-out;
-            &:hover {
-                background-color: $backgroundFirst;
-                cursor: pointer;
+            &:not(.active-link):hover {
+                background-color: $textColor;
+                color: white;
             }
 
             &.blocked {
@@ -59,13 +75,16 @@
                 transition: none;
                 &:hover {
                     background-color: $backgroundSecond;
+                    color: $textColor;
                     cursor: initial;
                 }
             }
 
             &.active-link {
                 background-color: $backgroundFirst;
-                width: 101%;
+                width: 88%;
+                border-bottom: 1px solid;
+                border-top: 1px solid;
             }
 
             &.growing {

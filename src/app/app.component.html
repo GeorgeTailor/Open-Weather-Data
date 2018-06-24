@@ -8,7 +8,7 @@
     <app-menu (menuToggle)="handleMenuToggle($event)"></app-menu>
   </div>
   <div class="content">
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="!loadingRouteConfig"></router-outlet>
     <div class="loader-holder">
       <app-loader class="loader" *ngIf="loadingRouteConfig"></app-loader>
     </div>
