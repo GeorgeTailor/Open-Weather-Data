@@ -86,6 +86,9 @@
                 border-bottom: 1px solid;
                 border-top: 1px solid;
             }
+            &:first-of-type {
+                border-top: none;
+            }
 
             &.growing {
                 flex-grow: 1;
