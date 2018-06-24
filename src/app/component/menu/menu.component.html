@@ -1,11 +1,10 @@
 <div class="menu" [class.hidden]="hidden">
   <ul>
-    <li class="menu-item blocked">{{'Menu' | translate}} 
+    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">{{'weather' | translate}}
       <div class="close-btn" (click)="toggleMenu()">
-        <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
-      </div>
-    </li>
-    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">{{'weather' | translate}}</li>
+          <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
+        </div>
+      </li>
     <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/map']">{{'maps' | translate}}</li>
     <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/historical-data']">{{'historical.data' | translate}}</li>
     <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/favorites']">{{'favorites' | translate}}</li>
