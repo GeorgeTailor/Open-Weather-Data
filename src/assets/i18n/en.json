@@ -1,0 +1,13 @@
+{
+    "weather": "Weather",
+    "maps": "Maps",
+    "historical.data": "Historical Data",
+    "favorites": "Favorites",
+    "Menu": "Menu",
+    "Forecast": "Forecast",
+    "loading.error": "Could not load weather data, please try again later",
+    "Pressure": "Pressure",
+    "Wind":"Wind",
+    "Clouds":"Clouds",
+    "Humidity": "Humidity"
+}
