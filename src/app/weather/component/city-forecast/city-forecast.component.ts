@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../../service/weather.service';
 import { finalize } from 'rxjs/operators';
 
@@ -13,10 +13,11 @@ export class CityForecastComponent implements OnInit {
   weatherData;
   loading: boolean = true;
   loadingError: boolean = false;
+  viewTogglerOptions: Array<any>;
+  selectedOption: string;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private weatherService: WeatherService
   ) { }
 
@@ -30,6 +31,20 @@ export class CityForecastComponent implements OnInit {
         error => {this.loadingError = true;}
       );
     });
+
+    this.viewTogglerOptions = [
+      {
+        selected: true,
+        text: 'plain.data',
+        value: 'plain'
+      },
+      {
+        selected: false,
+        text: 'chart.data',
+        value: 'chart'
+      }
+    ]
+    this.selectedOption = this.viewTogglerOptions[0].value;
   }
 
   processResponse(res) {
@@ -38,6 +53,11 @@ export class CityForecastComponent implements OnInit {
       element.dt = date.substring(0, date.length - 3);
     });
     this.weatherData = res;
-    console.log(this.weatherData);
+  }
+
+  selectOption(event, option) {
+    this.viewTogglerOptions.forEach(el => el.selected = false);
+    option.selected = true;
+    this.selectedOption = option.value;
   }
 }

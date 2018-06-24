@@ -9,13 +9,16 @@ import { WeatherRoutingModule } from './weather.routing.module';
 import { RouterModule } from '@angular/router';
 import { WeatherEntryComponent } from './component/weather-entry/weather.entry.component';
 import { SharedModule } from '../shared/shared.module';
+import { WeatherChartComponent } from './component/weather-chart/weather-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     WeatherRoutingModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    NgxChartsModule
   ],
   providers: [
     WeatherService,
@@ -25,7 +28,8 @@ import { SharedModule } from '../shared/shared.module';
     WeatherWidgetComponent,
     CityForecastComponent,
     WeatherWidgetListComponent,
-    WeatherEntryComponent
+    WeatherEntryComponent,
+    WeatherChartComponent
   ]
 })
 export class WeatherModule { }

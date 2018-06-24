@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    if (window.innerWidth < 500) {
+    if (window.innerWidth < 580) {
       this.hidden = true;
     } else {
       this.hidden = false;
@@ -21,9 +22,19 @@ export class MenuComponent implements OnInit {
 
   @Output() menuToggle: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.checkWindowWidth();
+    
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.checkWindowWidth();
+      }
+    });
+  }
+
+  checkWindowWidth() {
     if (window.innerWidth < 500) {
       this.hidden = true;
       this.menuToggle.emit(true);

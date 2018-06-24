@@ -9,5 +9,7 @@
     "Pressure": "Pressure",
     "Wind":"Wind",
     "Clouds":"Clouds",
-    "Humidity": "Humidity"
+    "Humidity": "Humidity",
+    "plain.data": "Plain View",
+    "chart.data": "Chart View"
 }

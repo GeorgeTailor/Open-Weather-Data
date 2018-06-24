@@ -2,13 +2,24 @@
 
 <div class="city-weather-forecast" *ngIf="!loading && !loadingError">
     <header class="forecast-header">
-      {{weatherData.city.name}}, {{weatherData.city.country}}
-    </header>
-    <div class="forecast-content">
-      <div *ngFor="let el of weatherData.list" class="forecast-widgets">
-        <app-weather-widget [widgetData]="el" [showButton]="false"></app-weather-widget>
+      <div class="city-info">
+        {{weatherData.city.name}}, {{weatherData.city.country}}
       </div>
+      <div class="view-toggler">
+        <div *ngFor="let option of viewTogglerOptions" class="view-toggler-option" (click)="selectOption($event, option)" [class.active]="option.selected">
+          {{option.text | translate}}
+        </div>
+      </div>
+    </header>
+    <div class="forecast-content" *ngIf="selectedOption === 'plain'">
+        <div *ngFor="let el of weatherData.list" class="forecast-widgets">
+          <app-weather-widget [widgetData]="el" [showButton]="false"></app-weather-widget>
+        </div>
     </div>
+    <div class="forecast-content-chart" *ngIf="selectedOption === 'chart'">
+       <app-weather-chart [weatherData]="weatherData.list"></app-weather-chart>
+    </div>
+
     <footer class="forecast-footer">
     </footer>
 </div>

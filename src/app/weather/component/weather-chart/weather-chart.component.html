@@ -1,0 +1,21 @@
+<div class="chart-holder">
+  <ngx-charts-line-chart
+    class="chart-container"
+    [scheme]="colorScheme"
+    [results]="crunchedData"
+    [legend]="showLegend"
+    [legendTitle]="legendTitle"
+    (legendLabelClick)="onLegendLabelClick($event)"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [autoScale]="true"
+    [timeline]="timeline"
+    [showGridLines]="showGridLines"
+    [curve]="curve"
+    [roundDomains]="roundDomains"
+    [tooltipDisabled]="tooltipDisabled"
+    (select)="select($event)">
+  </ngx-charts-line-chart>
+</div>

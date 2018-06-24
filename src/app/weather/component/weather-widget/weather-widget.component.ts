@@ -21,7 +21,6 @@ export class WeatherWidgetComponent implements OnInit {
 
   ngOnInit() {
     this.widgetData.main.temp = parseInt(this.widgetData.main.temp);
-    console.log(this.widgetData);
     this.windDirection = this.getWindDirection();
     this.weatherCondition = this.getWeatherCondition();
   }

@@ -10,6 +10,7 @@ import { MenuComponent } from './component/menu/menu.component';
 import { SharedModule } from './shared/shared.module';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -19,7 +20,7 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    MenuComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +28,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     RouterModule,
     SharedModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
