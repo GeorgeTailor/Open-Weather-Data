@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="app">
+<div class="app" [class.full-content]="hiddenMenu">
 
   <header>
     Weather app
   </header>
-  <div class="menu">
-    <app-menu></app-menu>
+  <div class="menu" [class.no-width]="hiddenMenu">
+    <app-menu (menuToggle)="handleMenuToggle($event)"></app-menu>
   </div>
   <div class="content">
     <router-outlet></router-outlet>

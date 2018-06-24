@@ -9,6 +9,7 @@ import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/route
 export class AppComponent implements OnInit {
 
   loadingRouteConfig = false;
+  hiddenMenu: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -20,6 +21,14 @@ export class AppComponent implements OnInit {
         this.loadingRouteConfig = false;
       }
     });
+  }
+
+  handleMenuToggle(menuHidden) {
+    if (menuHidden) {
+      this.hiddenMenu = true;
+    } else {
+      this.hiddenMenu = false;
+    }
   }
 
 }

@@ -1,8 +1,11 @@
+@import 'variables.scss';
+
 .widget {
     position: relative;
     border: 1px solid grey;
     border-radius: 5px;
     height: 100%;
+    background-color: $backgroundSecond;
 
     &:hover {
         cursor: pointer;
@@ -13,7 +16,7 @@
         height: 50px;
         text-align: center;
         line-height: 50px;
-        color: black;
+        color: $textColor;
         font-size: 2rem;
         font-weight: 700;
     }
@@ -29,7 +32,11 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            justify-content: space-evenly;        
+            justify-content: space-evenly;   
+            
+            .widget-first-line {
+                display: flex;
+            }
         }
 
         .loader {
@@ -85,16 +92,16 @@
         width: 100%;
         height: 40px;
         line-height: 40px;
-        background: black;
-        color: white;
+        background: $backgroundThird;
+        color: $textColor;
         text-align: center;
 
         .arrow-right {
             height: 5px;
             width: 5px;
             display: inline-block;
-            border-right: 2px solid white;
-            border-top: 2px solid white;
+            border-right: 2px solid $textColor;
+            border-top: 2px solid $textColor;
             transform: rotate(45deg);
         }
     }

@@ -1,13 +1,15 @@
 <div class="menu" [class.hidden]="hidden">
   <ul>
     <li class="menu-item blocked">Menu 
-      <div class="close-btn" (click)="hidden = !hidden">
+      <div class="close-btn" (click)="toggleMenu()">
         X
       </div>
     </li>
-    <li class="menu-item" [routerLink]="['/weather']">Weather</li>
-    <li class="menu-item" [routerLink]="['/map']">Maps</li>
-    <li class="menu-item" [routerLink]="['/historical-data']">Historical Data</li>
-    <li class="menu-item" [routerLink]="['/favorites']">Favorites</li>
+    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">Weather</li>
+    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/map']">Maps</li>
+    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/historical-data']">Historical Data</li>
+    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/favorites']">Favorites</li>
+    <li class="menu-item blocked growing">
+    </li>
   </ul>
 </div>

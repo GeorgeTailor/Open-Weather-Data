@@ -7,8 +7,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript">
+    function checkIE(){
+      function msieversion() {
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+          var el = document.getElementById('ie-alert');
+          el.style.display = 'block';
+        }
+        return false;
+      }
+      msieversion();
+    }
+  </script>
 </head>
-<body>
+<body onload="checkIE()">
+  <div id="ie-alert" style="display:none">Your browser is not supported</div>
   <app-root></app-root>
 </body>
 </html>
