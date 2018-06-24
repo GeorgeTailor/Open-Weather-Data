@@ -51,10 +51,10 @@
                     border-top: 1px solid black;
                     border-right: 1px solid black;
                     &.opened {
-                        transform: rotate(45deg);
+                        transform: rotate(-135deg);
                     }
                     &.closed {
-                        transform: rotate(-135deg);
+                        transform: rotate(45deg);
                     }
                 }
 
