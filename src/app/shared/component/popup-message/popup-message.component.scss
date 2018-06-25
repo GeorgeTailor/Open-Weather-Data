@@ -1,0 +1,100 @@
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    transition: opacity 350ms;
+    z-index: 999;
+    
+    .popup-inner {
+        margin: 70px auto;
+        background: #fff;
+        border-radius: 5px;
+        max-width: 400px;
+        position: relative;
+        animation: fadeInAndMoveJsPopup 0.5s linear;
+        animation-fill-mode: both;
+        animation-timing-function: ease-in-out;
+        text-align: center;  
+        &.closing {
+            animation: fadeOutAndMoveJsPopup 0.3s linear;
+            animation-fill-mode: both;
+            animation-timing-function: ease-in-out;
+        }      
+    }
+    
+    .popup-inner .popup-header {
+        margin-top: 0;
+        padding: 5px;
+        background: var(--headerTextColor);
+        color: var(--headerColor);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        h2 {
+            margin: 12px;
+        }
+        .close-popup-x-mark {
+            position: absolute;
+            top: 8px;
+            right: 20px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+    }
+    .popup-inner .popup-content {
+        max-height: 30%;
+        overflow: auto;
+        margin-bottom: 20px;
+        white-space: normal;
+        padding: 20px;
+        .popup-message {
+            margin-bottom: 20px;
+        }
+        .popup-buttons {
+            .ok-button {
+                border: none;
+                border-radius: 3px;
+                background-color: var(--backgroundThird);
+                color: var(--backgroundSecond);
+                min-width: 70px;
+                min-height: 35px;
+                margin: 4px;
+                span {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeInAndMoveJsPopup {
+    0% {
+        opacity: 0;
+        top: -100px;
+    }
+    50% {
+        opacity: 0.8;
+        top: 20px;
+    }
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+}
+
+@keyframes fadeOutAndMoveJsPopup {
+    0% {
+        opacity: 1;
+        top: 0px;
+    }
+    50% {
+        opacity: 0.2;
+        top: 20px;
+    }
+    100% {
+        opacity: 0;
+        top: -100px;
+    }
+}

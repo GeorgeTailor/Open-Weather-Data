@@ -1,0 +1,13 @@
+<div class="js-textarea" [formGroup]="parentFormGroup">
+    <div class="textarea-holder">
+        <textarea [class.error-border]="_controlName.invalid && (_controlName.dirty || _controlName.touched)" 
+            formControlName="{{controlName}}"></textarea>
+    </div>
+    <span *ngIf="_controlName.invalid && (_controlName.dirty || _controlName.touched)" class="error">
+        <span *ngFor="let validationRule of jsValidators | singleErrorPipe: {errors: _controlName.errors}">
+            <span *ngIf="_controlName.errors[validationRule.validationFn]" class="errorMsg">
+                <span>{{validationRule.validationMessageKey | translate}}</span>
+            </span>
+        </span>
+    </span>
+</div>

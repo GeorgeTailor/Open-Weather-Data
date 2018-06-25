@@ -1,0 +1,24 @@
+.contact-us-form {
+    max-width: 800px;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(265px,265px));
+    grid-gap: 20px;
+    justify-content: center;
+    font-size: 19px;
+    .question-label {
+        color: var(--textColor);
+        padding: 5px 5px 5px 10px;
+    }
+    .submit-button {
+        border: none;
+        border-radius: 3px;
+        width: 100px;
+        height: 35px;
+        margin: 20px auto;
+        display: block;
+        font-size: 16px;
+        background-color: var(--backgroundThird);
+        color: var(--backgroundSecond);
+    }
+}

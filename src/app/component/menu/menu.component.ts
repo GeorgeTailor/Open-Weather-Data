@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter, AfterContentInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -6,9 +6,11 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, AfterContentInit {
 
   hidden: boolean = false;
+
+  idx: number = 0;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -32,6 +34,17 @@ export class MenuComponent implements OnInit {
         this.checkWindowWidth();
       }
     });
+  }
+
+  ngAfterContentInit() {
+    setTimeout(() => {
+      const menuItems = document.getElementsByClassName('menu-item');
+      for (let i = 0; i < menuItems.length; i++) {
+        if (menuItems[i].classList.contains('active-link')){
+          this.idx = i;
+        }
+      }
+    }, 250);
   }
 
   checkWindowWidth() {

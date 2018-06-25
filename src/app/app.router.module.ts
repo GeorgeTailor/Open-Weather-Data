@@ -20,6 +20,10 @@ const appRoutes: Routes = [
         loadChildren: "../app/favorites/favorites.module#FavoritesModule"
     },
     {
+        path: 'contact-us',
+        loadChildren: "../app/contact-us/contact-us.module#ContactUsModule"
+    },
+    {
         path: '',
         redirectTo: '/weather',
         pathMatch: 'full'

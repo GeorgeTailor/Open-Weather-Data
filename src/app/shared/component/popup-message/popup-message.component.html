@@ -1,0 +1,21 @@
+<div [class.visible]="visible" class="popup">
+    <div #popupBody class="popup-inner" [class.closing]="!visible">
+      <div class="popup-header">
+        <h2>{{popupTextObject.headerText | translate}}</h2>
+        <div class="close-popup-x-mark" (click)="emitReject($event)">✕</div>
+      </div>
+      <div class="popup-content">
+        <div class="popup-message">
+          {{popupTextObject.messageText | translate}}
+        </div>
+        <div class="popup-buttons">
+          <button *ngIf="popupTextObject.buttonAcceptText" (click)="emitAccept($event)" type="button" class="ok-button">    
+            <span class="close-popup">{{popupTextObject.buttonAcceptText | translate}}</span>
+          </button>
+          <button *ngIf="popupTextObject.buttonRejectText" (click)="emitReject($event)" type="button" class="ok-button">
+            <span class="close-popup">{{popupTextObject.buttonRejectText | translate}}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,53 @@
+<popup-message *ngIf="showPopup" 
+  [popupTextObject]="message" 
+  (closePopupEvent)="handlePopupReject($event)" 
+  (acceptPopupEvent)="handlePopupAccept($event)">
+</popup-message>
+<div class="contact-us-form">
+  <div class="question-label">
+    First Name
+  </div>
+  <js-input 
+    [jsValidators]="firstNameValidators" 
+    [controlName]="'first-name'" 
+    [parentFormGroup]="formGroup" 
+    [placeholder]="'First Name'">
+
+  </js-input>
+
+  <div class="question-label">
+    Last Name
+  </div>
+  <js-input 
+    [jsValidators]="lastNameValidators" 
+    [controlName]="'last-name'" 
+    [parentFormGroup]="formGroup" 
+    [placeholder]="'Last Name'">
+
+  </js-input>
+
+  <div class="question-label">
+    Email
+  </div>
+  <js-input 
+    [jsValidators]="emailValidators" 
+    [controlName]="'email'" 
+    [parentFormGroup]="formGroup" 
+    [placeholder]="'example@com'">
+
+  </js-input>
+
+  <div class="question-label">
+    Message
+  </div>
+  <js-textarea
+    [jsValidators]="messageValidators" 
+    [controlName]="'message'" 
+    [parentFormGroup]="formGroup">
+
+  </js-textarea>
+
+  <button type="button" class="submit-button" (click)="validateAndSubmitForm($event)">
+    Submit
+  </button>
+</div>

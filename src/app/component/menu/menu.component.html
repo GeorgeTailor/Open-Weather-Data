@@ -1,13 +1,35 @@
 <div class="menu" [class.hidden]="hidden">
   <ul>
-    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">{{'weather' | translate}}
+    <div class="moving-background" [style.border-top]="idx === 0 ? '0' : '1px solid'" [ngStyle]="{'transform': 'translateY(' + idx * 94 + '%)'}">
+    </div>
+    <li class="menu-item" (click)="idx = 0" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">
+      <span class="menu-label">
+        {{'weather' | translate}}
+      </span>
       <div class="close-btn" (click)="toggleMenu($event)">
-          <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
-        </div>
-      </li>
-    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/map']">{{'maps' | translate}}</li>
-    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/historical-data']">{{'historical.data' | translate}}</li>
-    <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/favorites']">{{'favorites' | translate}}</li>
+        <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
+      </div>
+    </li>
+    <li class="menu-item" (click)="idx = 1" [routerLinkActive]="['active-link']" [routerLink]="['/map']">
+      <span class="menu-label">
+        {{'maps' | translate}}
+      </span>
+    </li>
+    <li class="menu-item" (click)="idx = 2" [routerLinkActive]="['active-link']" [routerLink]="['/historical-data']">
+      <span class="menu-label">
+        {{'historical.data' | translate}}
+      </span>
+    </li>
+    <li class="menu-item" (click)="idx = 3" [routerLinkActive]="['active-link']" [routerLink]="['/favorites']">
+      <span class="menu-label">
+        {{'favorites' | translate}}
+      </span>
+    </li>
+    <li class="menu-item" (click)="idx = 4" [routerLinkActive]="['active-link']" [routerLink]="['/contact-us']">
+      <span class="menu-label">
+        {{'contactus' | translate}}
+      </span>
+    </li>
     <li class="menu-item blocked growing">
       <button type="button" (click)="changeColor($event, 'standard')">Standard</button>
       <button type="button" (click)="changeColor($event, 'colours')">Colours</button>

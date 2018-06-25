@@ -1,0 +1,16 @@
+<div class="input-holder" [formGroup]="parentFormGroup">
+    <div class="inner-input-holder">
+        <input [class.error-border]="_controlName.invalid && (_controlName.dirty || _controlName.touched)" 
+            class="js-input" 
+            type="{{type}}" 
+            placeholder="{{placeholder}}" 
+            formControlName="{{controlName}}"/>
+    </div>
+    <span *ngIf="_controlName.invalid && (_controlName.dirty || _controlName.touched)" class="error">
+        <span *ngFor="let validationRule of jsValidators | singleErrorPipe: {errors: _controlName.errors}">
+            <span *ngIf="_controlName.errors[validationRule.validationFn]" class="errorMsg">
+                <span>{{validationRule.validationMessageKey | translate}}</span>
+            </span>
+        </span>
+    </span>
+</div>

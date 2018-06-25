@@ -11,5 +11,14 @@
     "Clouds":"Clouds",
     "Humidity": "Humidity",
     "plain.data": "Plain View",
-    "chart.data": "Chart View"
+    "chart.data": "Chart View",
+    "contactus": "Contact Us",
+    "first.name.required": "First Name Required",
+    "last.name.required": "Last Name Required",
+    "message.required": "Message Required",
+    "email.required": "Email is required",
+    "email.invalid": "Email is invalid",
+    "message.received": "Your message was received",
+    "message.delivery.success": "Success",
+    "ok": "OK"
 }

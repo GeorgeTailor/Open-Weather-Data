@@ -1,0 +1,30 @@
+$question-width: 120px;
+$answer-width: 250px;
+$answer-height: 38px;
+$answer-background-color: #F1F1F1;
+$answer-text-color: #666666;
+$error-color: white;
+
+:host-context(.multi-select-checkbox) .error {
+    bottom: -20px;
+}
+
+.error {
+    position: absolute;
+    bottom: -17px;
+    font-size: 12px;
+    left: 0;
+    z-index: 1;
+    animation: popup 0.3s forwards;
+    transform: translate3d(0, -100%, 0);
+
+    .errorMsg{
+        color: red;
+    }
+}
+
+@keyframes popup {
+    100%{
+      transform: translate3d(0, 0, 0);
+    }
+}

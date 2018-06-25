@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.input-holder{
+    position: relative;
+    .inner-input-holder{
+        .js-input{
+            min-width: 250px;
+            max-width: 450px;
+            background-color: var(--headerColor);
+            color: var(--headerTextColor);
+            border: none;
+            border-radius: 2px;
+            padding: 5px 5px 5px 10px;
+            height: $answer-height - 5px;
+            box-sizing: border-box;
+            font-size: 15px;
+            &.error-border{
+                border: 1px solid red;
+            }
+            &::placeholder { 
+                color: var(--headerTextColor);
+                opacity: 0.6; 
+            }
+            &::-ms-input-placeholder {
+                color: var(--headerTextColor);
+                opacity: 0.6; 
+            }
+        }
+    }
+}
