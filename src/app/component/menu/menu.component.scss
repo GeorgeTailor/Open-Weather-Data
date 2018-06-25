@@ -1,11 +1,9 @@
-@import 'variables.scss';
-
 .menu {
     font-size: 20px;
     position: fixed;
     width: 200px;
     height: 100%;
-    border-right: 1px solid $textColor;
+    border-right: 1px solid var(--textColor);
 
     transform: translateX(0);
     &.hidden {
@@ -24,7 +22,7 @@
             padding: 5px 5px 5px 20px;
             height: 30px;
             line-height: 30px;
-            background-color: $backgroundSecond;
+            background-color: var(--backgroundSecond);
             outline: none;
             cursor: pointer;
 
@@ -39,7 +37,7 @@
                 line-height: 40px;
                 text-align: center;
                 z-index: 2;
-                background-color: $backgroundFirst;
+                background-color: var(--backgroundFirst);
                 transition: background-color .3s ease-in-out;
                 cursor: pointer;
                 justify-content: center;
@@ -59,33 +57,35 @@
                 }
 
                 &:hover {
-                    background-color: $backgroundSecond;
+                    background-color: var(--backgroundSecond);
                 }
             }
 
             transition: background-color 0.3s ease-in-out;
             &:not(.active-link):hover {
-                background-color: $textColor;
+                background-color: var(--backgroundFirst);
                 color: white;
             }
 
             &.blocked {
-                background-color: $backgroundSecond;
-                color: $textColor;
+                background-color: var(--backgroundSecond);
+                color: var(--textColor);//var(--textColor);
                 transition: none;
                 &:hover {
-                    background-color: $backgroundSecond;
-                    color: $textColor;
+                    background-color: var(--backgroundSecond);
+                    color: var(--textColor);
                     cursor: initial;
                 }
             }
 
             &.active-link {
-                background-color: $backgroundFirst;
+                background-color: var(--backgroundFirst);
                 width: 88%;
-                border-bottom: 1px solid;
-                border-top: 1px solid;
+                border-bottom: 1px solid var(--textColor);
+                border-top: 1px solid var(--textColor);
+                color: var(--textColorDiff);
             }
+
             &:first-of-type {
                 border-top: none;
             }
@@ -93,6 +93,17 @@
             &.growing {
                 flex-grow: 1;
                 position:relative;
+                display: flex;
+                flex-direction: column;
+                button {
+                    background: var(--backgroundThird);
+                    color: var(--backgroundSecond);
+                    border: none;
+                    cursor: pointer;
+                    margin: 5px;
+                    height: 29px;
+                    border-radius: 3px;
+                }
                 .end-item {
                     position: absolute;
                     bottom: 40%;

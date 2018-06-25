@@ -1,5 +1,3 @@
-@import 'variables.scss';
-
 .loader {
     justify-content: center;
     display: flex;
@@ -25,7 +23,7 @@
             .view-toggler-option {
                 display: inline-block;
                 position: relative;
-                border: 1px solid $textColor;
+                border: 1px solid var(--textColor);
                 padding: 6px;
                 cursor: pointer;
                 &:first-child {
@@ -36,8 +34,10 @@
                     border-bottom-right-radius: 3px;
                     border-top-right-radius: 3px;
                 }
+                background-color: var(--backgroundSecond);
                 &.active {
-                    background-color: $backgroundThird;
+                    background-color: var(--backgroundThird);
+                    color: var(--backgroundSecond);
                 }
             }
         }

@@ -1,10 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'variables.scss';
-
 body {
   margin: 0;
-  background-color: $backgroundFirst;
+  background-color: var(--backgroundFirst);
+}
+
+
+// only for demo purposes
+* {
+  transition: background-color .3s ease-in-out;
+}
+
+:root {
+  --headerTextColor: #373737;
+  --headerColor: #FFFFFF;
+  --textColor: #373737;
+  --textColorDiff: #373737;
+  --backgroundFirst: #EFEFEF;
+  --backgroundSecond: #F4F4F4;
+  --backgroundThird: #A9A9A9;
 }
 
 /*!

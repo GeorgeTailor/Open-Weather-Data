@@ -1,7 +1,7 @@
 <div class="menu" [class.hidden]="hidden">
   <ul>
     <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">{{'weather' | translate}}
-      <div class="close-btn" (click)="toggleMenu()">
+      <div class="close-btn" (click)="toggleMenu($event)">
           <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
         </div>
       </li>
@@ -9,6 +9,9 @@
     <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/historical-data']">{{'historical.data' | translate}}</li>
     <li class="menu-item" [routerLinkActive]="['active-link']" [routerLink]="['/favorites']">{{'favorites' | translate}}</li>
     <li class="menu-item blocked growing">
+      <button type="button" (click)="changeColor($event, 'standard')">Standard</button>
+      <button type="button" (click)="changeColor($event, 'colours')">Colours</button>
+      <button type="button" (click)="changeColor($event, 'coffee')">Coffee</button>
     </li>
   </ul>
 </div>

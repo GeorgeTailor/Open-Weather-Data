@@ -41,9 +41,38 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  toggleMenu() {
+  toggleMenu(event) {
+    event.stopPropagation();
     this.hidden = !this.hidden;
     this.menuToggle.emit(this.hidden);
   }
+
+  changeColor(event, colour) {
+    if (colour === 'standard') {
+      document.documentElement.style.setProperty('--headerTextColor', '#373737');
+      document.documentElement.style.setProperty('--headerColor', '#FFFFFF');
+      document.documentElement.style.setProperty('--textColor', '#373737');
+      document.documentElement.style.setProperty('--textColorDiff', '#373737');
+      document.documentElement.style.setProperty('--backgroundFirst', '#EFEFEF');
+      document.documentElement.style.setProperty('--backgroundSecond', '#F4F4F4');
+      document.documentElement.style.setProperty('--backgroundThird', '#A9A9A9');
+    } else if (colour === 'colours') {
+      document.documentElement.style.setProperty('--headerTextColor', '#000000');
+      document.documentElement.style.setProperty('--headerColor', '#EC576B');
+      document.documentElement.style.setProperty('--textColor', '#000000');
+      document.documentElement.style.setProperty('--textColorDiff', '#000000');
+      document.documentElement.style.setProperty('--backgroundFirst', '#FFFFFF');
+      document.documentElement.style.setProperty('--backgroundSecond', '#4EC5C1');
+      document.documentElement.style.setProperty('--backgroundThird', '#FF533D');
+    } else if (colour === 'coffee') {
+      document.documentElement.style.setProperty('--headerTextColor', '#EA5B28');
+      document.documentElement.style.setProperty('--headerColor', '#FFFCF2');
+      document.documentElement.style.setProperty('--textColor', '#252422');
+      document.documentElement.style.setProperty('--textColorDiff', '#EA5B28');
+      document.documentElement.style.setProperty('--backgroundFirst', '#CCC5B9');
+      document.documentElement.style.setProperty('--backgroundSecond', '#FFFCF2');
+      document.documentElement.style.setProperty('--backgroundThird', '#403D39');
+    }
+  } 
 
 }

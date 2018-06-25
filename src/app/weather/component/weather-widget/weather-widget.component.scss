@@ -1,11 +1,9 @@
-@import 'variables.scss';
-
 .widget {
     position: relative;
     border: 1px solid grey;
     border-radius: 5px;
     height: 100%;
-    background-color: $backgroundSecond;
+    background-color: var(--backgroundSecond);
 
     &:hover {
         cursor: pointer;
@@ -16,7 +14,7 @@
         height: 50px;
         text-align: center;
         line-height: 50px;
-        color: $textColor;
+        color: var(--textColor);//var(--textColor);
         font-size: 2rem;
         font-weight: 700;
     }
@@ -35,7 +33,10 @@
             justify-content: space-evenly;   
             
             .widget-first-line {
-                display: flex;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(20px, 125px));
+                grid-gap: 10px;
+                justify-content: center;
             }
         }
 
@@ -67,7 +68,6 @@
 
         .weather-description, .weather-image {
             display: inline-block;
-            width: 50%;
         }
 
         .weather-details-grid {
@@ -92,16 +92,16 @@
         width: 100%;
         height: 40px;
         line-height: 40px;
-        background: $backgroundThird;
-        color: $textColor;
+        background: var(--backgroundThird);
+        color: var(--backgroundSecond);
         text-align: center;
 
         .arrow-right {
             height: 5px;
             width: 5px;
             display: inline-block;
-            border-right: 2px solid $textColor;
-            border-top: 2px solid $textColor;
+            border-right: 2px solid var(--backgroundSecond);
+            border-top: 2px solid var(--backgroundSecond);
             transform: rotate(45deg);
         }
     }

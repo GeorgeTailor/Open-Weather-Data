@@ -2,7 +2,10 @@
 <div class="app" [class.full-content]="hiddenMenu">
 
   <header>
-    Weather app
+    <div class="title">
+      Weather app
+    </div>
+    <i class="wi wi-day-cloudy"></i>
   </header>
   <div class="menu" [class.no-width]="hiddenMenu">
     <app-menu (menuToggle)="handleMenuToggle($event)"></app-menu>
