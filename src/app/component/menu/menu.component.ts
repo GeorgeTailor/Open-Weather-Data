@@ -32,11 +32,16 @@ export class MenuComponent implements OnInit, AfterContentInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.checkWindowWidth();
+        this.checkCurrentMenuIdx();
       }
     });
   }
 
   ngAfterContentInit() {
+    this.checkCurrentMenuIdx();
+  }
+
+  checkCurrentMenuIdx() {
     setTimeout(() => {
       const menuItems = document.getElementsByClassName('menu-item');
       for (let i = 0; i < menuItems.length; i++) {
@@ -44,7 +49,7 @@ export class MenuComponent implements OnInit, AfterContentInit {
           this.idx = i;
         }
       }
-    }, 250);
+    }, 110);
   }
 
   checkWindowWidth() {

@@ -25,6 +25,9 @@
         color: var(--headerTextColor);
         z-index: 2;
         border-bottom: 1px solid var(--textColor);
+        .title {
+            cursor: pointer;
+        }
     }
     .menu {
         height: 80vh;   

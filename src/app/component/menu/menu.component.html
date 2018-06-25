@@ -2,7 +2,7 @@
   <ul>
     <div class="moving-background" [style.border-top]="idx === 0 ? '0' : '1px solid'" [ngStyle]="{'transform': 'translateY(' + idx * 94 + '%)'}">
     </div>
-    <li class="menu-item" (click)="idx = 0" [routerLinkActive]="['active-link']" [routerLink]="['/weather']">
+    <li class="menu-item"  [routerLinkActive]="['active-link']" [routerLink]="['/weather']">
       <span class="menu-label">
         {{'weather' | translate}}
       </span>
@@ -10,22 +10,22 @@
         <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
       </div>
     </li>
-    <li class="menu-item" (click)="idx = 1" [routerLinkActive]="['active-link']" [routerLink]="['/map']">
+    <li class="menu-item"  [routerLinkActive]="['active-link']" [routerLink]="['/map']">
       <span class="menu-label">
         {{'maps' | translate}}
       </span>
     </li>
-    <li class="menu-item" (click)="idx = 2" [routerLinkActive]="['active-link']" [routerLink]="['/historical-data']">
+    <li class="menu-item"  [routerLinkActive]="['active-link']" [routerLink]="['/historical-data']">
       <span class="menu-label">
         {{'historical.data' | translate}}
       </span>
     </li>
-    <li class="menu-item" (click)="idx = 3" [routerLinkActive]="['active-link']" [routerLink]="['/favorites']">
+    <li class="menu-item"  [routerLinkActive]="['active-link']" [routerLink]="['/favorites']">
       <span class="menu-label">
         {{'favorites' | translate}}
       </span>
     </li>
-    <li class="menu-item" (click)="idx = 4" [routerLinkActive]="['active-link']" [routerLink]="['/contact-us']">
+    <li class="menu-item"  [routerLinkActive]="['active-link']" [routerLink]="['/contact-us']">
       <span class="menu-label">
         {{'contactus' | translate}}
       </span>
