@@ -3,23 +3,15 @@ import { GeolocationService } from '../../../shared/service/geolocation.service'
 import { WeatherService } from '../../../shared/service/weather.service';
 
 @Component({
-  selector: 'app-weather-widget-list',
-  templateUrl: './weather-widget-list.component.html',
-  styleUrls: ['./weather-widget-list.component.scss']
+  selector: 'app-weatherv2',
+  templateUrl: './weatherv2.component.html',
+  styleUrls: ['./weatherv2.component.scss']
 })
-export class WeatherWidgetListComponent implements OnInit {
-
-  widgetNumber: number = 5;
+export class Weatherv2Component implements OnInit {
 
   citiesIds = [2643743, 3128760, 2657896, 6539761, 703448];
-
-  widgets: Array<any> = [
-    // {'city': 'London'}, //2643743
-    // {'city': 'Lviv'}, //3128760
-    // {'city': 'Zurich'}, //2657896
-    // {'city': 'Rome'}, //6539761
-    // {'city': 'Barcelona'} //3128760
-  ];
+  widgets = [];
+  idx = 0;
 
   constructor(private geolocationService: GeolocationService, private weatherService: WeatherService) { }
 
@@ -28,6 +20,7 @@ export class WeatherWidgetListComponent implements OnInit {
     this.getListWeatherData();
   }
 
+  
   getListWeatherData() {
     this.weatherService.getCurrentWeatherDataForCityGroup(...this.citiesIds).subscribe(
       res => {
@@ -55,4 +48,21 @@ export class WeatherWidgetListComponent implements OnInit {
 
     });
   }
+
+  moveCarouselLeft(event) {
+    if (this.idx === 0) {
+      this.idx = this.widgets.length - 1;
+    } else {
+      this.idx = this.idx - 1;
+    }
+  }
+
+  moveCarouselRight(event) {
+    if (this.idx === this.widgets.length - 1) {
+      this.idx = 0;
+    } else {
+      this.idx = this.idx + 1;
+    }
+  }
+
 }

@@ -8,6 +8,10 @@ const appRoutes: Routes = [
         loadChildren: "../app/weather/weather.module#WeatherModule"
     },
     {
+        path: 'weatherv2',
+        loadChildren: "../app/weatherv2/weatherv2.module#Weatherv2Module"
+    },
+    {
         path: 'map',
         loadChildren: "../app/map/map.module#MapModule"
     },

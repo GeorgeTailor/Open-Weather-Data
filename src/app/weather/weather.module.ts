@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { WeatherWidgetComponent } from './component/weather-widget/weather-widget.component';
 import { CityForecastComponent } from './component/city-forecast/city-forecast.component';
 import { WeatherWidgetListComponent } from './component/weather-widget-list/weather-widget-list.component';
-import { WeatherService } from './service/weather.service';
-import { GeolocationService } from './service/geolocation.service';
 import { WeatherRoutingModule } from './weather.routing.module';
 import { RouterModule } from '@angular/router';
 import { WeatherEntryComponent } from './component/weather-entry/weather.entry.component';
@@ -19,10 +17,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     RouterModule,
     SharedModule,
     NgxChartsModule
-  ],
-  providers: [
-    WeatherService,
-    GeolocationService
   ],
   declarations: [
     WeatherWidgetComponent,

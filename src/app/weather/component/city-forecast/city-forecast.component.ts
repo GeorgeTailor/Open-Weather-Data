@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WeatherService } from '../../service/weather.service';
 import { finalize } from 'rxjs/operators';
+import { WeatherService } from '../../../shared/service/weather.service';
 
 @Component({
   selector: 'app-city-forecast',

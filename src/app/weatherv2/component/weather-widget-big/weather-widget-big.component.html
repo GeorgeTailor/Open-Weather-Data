@@ -1,0 +1,36 @@
+<div class="widget">
+  <header class="widget-header">
+    {{widgetData.name}}
+  </header>
+  <div class="widget-content">
+    <app-loader class="loader" *ngIf="loading"></app-loader>
+    <div class="widget-content-holder" *ngIf="!loading && !loadingError">
+      <div class="temperature">
+        {{widgetData.main.temp}} ℃
+      </div>
+      <div class="weather-image">
+        <i class="wi" [ngClass]="1 === 1 ? weatherCondition : ''"></i>
+      </div>
+      <div class="weather-details">
+        <div class="humidity">
+          <span class="grid-el-label">{{'Humidity' | translate}} </span>
+          <span class="grid-el-value">{{widgetData.main.humidity}} %</span>
+        </div>
+        <div class="wind">
+          <span class="grid-el-label">{{'Wind' | translate}} </span>
+          <span class="grid-el-value">{{widgetData.wind.speed}} m/s {{windDirection}}</span>
+        </div>
+        <div class="pressure">
+          <span class="grid-el-label">{{'Pressure' | translate}} </span>
+          <span class="grid-el-value">{{widgetData.main.pressure}} hPa</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loadingError" class="error">
+      <span>{{'loading.error' | translate}}</span>
+    </div>
+  </div>
+  <footer class="widget-footer">
+    {{'Forecast' | translate}} <div class="arrow-down"></div>
+  </footer>
+</div>

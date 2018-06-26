@@ -10,6 +10,11 @@
         <div class="toggle-arrow" [ngClass]="hidden ? 'closed' : 'opened'"></div>
       </div>
     </li>
+    <li class="menu-item"  [routerLinkActive]="['active-link']" [routerLink]="['/weatherv2']">
+      <span class="menu-label">
+      {{'weatherv2' | translate}}
+      </span>
+    </li>
     <li class="menu-item"  [routerLinkActive]="['active-link']" [routerLink]="['/map']">
       <span class="menu-label">
         {{'maps' | translate}}

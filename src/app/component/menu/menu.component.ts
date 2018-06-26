@@ -73,7 +73,7 @@ export class MenuComponent implements OnInit, AfterContentInit {
       document.documentElement.style.setProperty('--textColorDiff', '#373737');
       document.documentElement.style.setProperty('--backgroundFirst', '#EFEFEF');
       document.documentElement.style.setProperty('--backgroundSecond', '#F4F4F4');
-      document.documentElement.style.setProperty('--backgroundThird', '#A9A9A9');
+      document.documentElement.style.setProperty('--backgroundThird', '#373737');
     } else if (colour === 'colours') {
       document.documentElement.style.setProperty('--headerTextColor', '#000000');
       document.documentElement.style.setProperty('--headerColor', '#EC576B');

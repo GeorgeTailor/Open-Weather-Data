@@ -1,32 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { WeatherService } from '../../../shared/service/weather.service';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-weather-widget',
-  templateUrl: './weather-widget.component.html',
-  styleUrls: ['./weather-widget.component.scss']
+  selector: 'app-weather-widget-big',
+  templateUrl: './weather-widget-big.component.html',
+  styleUrls: ['./weather-widget-big.component.scss']
 })
-export class WeatherWidgetComponent implements OnInit {
+export class WeatherWidgetBigComponent implements OnInit {
 
   @Input('widgetData') widgetData;
-  @Input('showButton') showButton = true;
 
-  windDirection;
   weatherCondition;
-
-  loading: boolean = false;
-  loadingError: boolean = false;
-
-  constructor(private weatherService: WeatherService) { }
+  windDirection;
+ 
+  constructor() { }
 
   ngOnInit() {
     this.widgetData.main.temp = parseInt(this.widgetData.main.temp);
     this.windDirection = this.getWindDirection();
     this.weatherCondition = this.getWeatherCondition();
-  }
-
-  getCityInfo() {
-    return this.weatherService.getCurrentWeatherDataForCity(this.widgetData.city);
   }
 
   getWeatherCondition() {

@@ -20,5 +20,6 @@
     "email.invalid": "Email is invalid",
     "message.received": "Your message was received",
     "message.delivery.success": "Success",
-    "ok": "OK"
+    "ok": "OK",
+    "weatherv2": "Weather v2"
 }
