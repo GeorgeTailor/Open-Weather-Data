@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { finalize } from 'rxjs/operators';
+import { WeatherService } from '../../../shared/service/weather.service';
+
 
 @Component({
   selector: 'app-weather-widget-big',
@@ -11,17 +14,20 @@ export class WeatherWidgetBigComponent implements OnInit {
 
   weatherCondition;
   windDirection;
+  showForecast: boolean = false;
+  loading = false;
+  loadingError: boolean = false;
+  forecastData;
  
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.widgetData.main.temp = parseInt(this.widgetData.main.temp);
     this.windDirection = this.getWindDirection();
-    this.weatherCondition = this.getWeatherCondition();
+    this.weatherCondition = this.getWeatherCondition(this.widgetData.weather[0].id);
   }
 
-  getWeatherCondition() {
-    const code = this.widgetData.weather[0].id;
+  getWeatherCondition(code) {
     if (code < 300) {
       return 'wi-day-thunderstorm';
     }
@@ -69,6 +75,27 @@ export class WeatherWidgetBigComponent implements OnInit {
     if (deg > 303.74 && deg < 348.75) {
       return 'NW';
     }
+  }
+
+  toggleForecast(event) {
+    this.showForecast = !this.showForecast;
+
+    this.weatherService.getForecastWeatherForCity(this.widgetData.name).pipe(
+      finalize(() => this.loading = false)
+    ).subscribe(
+      res => {this.processResponse(res);},
+      error => {this.loadingError = true;}
+    );
+  }
+
+  processResponse(res) {
+    res.list.forEach(element => {
+      const date = new Date(element.dt_txt).toLocaleString('en-GB');
+      element.dt = date.substring(0, date.length - 3);
+      element.weatherCondition = this.getWeatherCondition(element.weather[0].id);
+      element.main.temp = parseInt(element.main.temp);
+    });
+    this.forecastData = res;
   }
 
 }

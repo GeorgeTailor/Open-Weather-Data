@@ -30,7 +30,20 @@
       <span>{{'loading.error' | translate}}</span>
     </div>
   </div>
-  <footer class="widget-footer">
-    {{'Forecast' | translate}} <div class="arrow-down"></div>
+  <footer class="widget-footer" (click)="toggleForecast($event)">
+    {{'Forecast' | translate}} <div [class.upside-down]="showForecast" class="arrow-down"></div>
   </footer>
+  <div class="forecast" *ngIf="showForecast">
+      <div *ngFor="let el of forecastData.list" class="forecast-data">
+        <div class="forecast-date">
+          {{el.dt}}
+        </div>
+        <div class="forecast-image">
+          <i class="wi" [ngClass]="1 === 1 ? el.weatherCondition : ''"></i>
+        </div>
+        <div class="forecast-temp">
+            {{el.main.temp}} ℃
+        </div>
+      </div>
+  </div>
 </div>

@@ -119,6 +119,51 @@
             position: relative;
             top: -3px;
             left: 3px;
+
+            &.upside-down {
+                transform: rotate(-45deg);
+                top: 1px;
+            }
+        }
+    }
+
+    .forecast {
+        height: 160px;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        .forecast-data {
+            justify-content: center;
+            align-items: center;
+            display: inline-flex;
+            flex-direction: column;
+            border-right: 1px solid;
+            border-top: 1px solid;
+            padding: 5px;
+            height: 100%;
+            &:last-of-type {
+                border-right: none;
+            }
+            .forecast-image {
+                background: rgba(128, 128, 128, 0.2);
+                border-radius: 50%;
+                height: 80px;
+                width: 80px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i {
+                    margin: 0;
+                }
+            }
+
+            .forecast-temp {
+                font-size: 22px;
+            }
+
+            .forecast-date {
+                font-size: 20px;
+            }
         }
     }
 }
