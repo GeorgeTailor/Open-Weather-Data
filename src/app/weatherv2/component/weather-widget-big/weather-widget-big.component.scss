@@ -39,6 +39,7 @@
             }
 
             .weather-image {
+                font-size: 2rem;
                 i {
                     font-size: 5rem;
                 }
@@ -132,6 +133,7 @@
         white-space: nowrap;
         overflow-x: scroll;
         overflow-y: hidden;
+        text-align: center;
         .forecast-data {
             justify-content: center;
             align-items: center;

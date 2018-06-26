@@ -3,13 +3,13 @@
     {{widgetData.name}}
   </header>
   <div class="widget-content">
-    <app-loader class="loader" *ngIf="loading"></app-loader>
-    <div class="widget-content-holder" *ngIf="!loading && !loadingError">
+    <div class="widget-content-holder">
       <div class="temperature">
         {{widgetData.main.temp}} ℃
       </div>
       <div class="weather-image">
         <i class="wi" [ngClass]="1 === 1 ? weatherCondition : ''"></i>
+        {{widgetData.weather[0].description}}
       </div>
       <div class="weather-details">
         <div class="humidity">
@@ -26,24 +26,27 @@
         </div>
       </div>
     </div>
-    <div *ngIf="loadingError" class="error">
-      <span>{{'loading.error' | translate}}</span>
-    </div>
   </div>
   <footer class="widget-footer" (click)="toggleForecast($event)">
     {{'Forecast' | translate}} <div [class.upside-down]="showForecast" class="arrow-down"></div>
   </footer>
   <div class="forecast" *ngIf="showForecast">
-      <div *ngFor="let el of forecastData.list" class="forecast-data">
-        <div class="forecast-date">
-          {{el.dt}}
-        </div>
-        <div class="forecast-image">
-          <i class="wi" [ngClass]="1 === 1 ? el.weatherCondition : ''"></i>
-        </div>
-        <div class="forecast-temp">
+      <app-loader class="loader" *ngIf="loading"></app-loader>
+      <div *ngIf="!loading && !loadingError">
+        <div *ngFor="let el of forecastData.list" class="forecast-data">
+          <div class="forecast-date">
+            {{el.dt}}
+          </div>
+          <div class="forecast-image">
+            <i class="wi" [ngClass]="1 === 1 ? el.weatherCondition : ''"></i>
+          </div>
+          <div class="forecast-temp">
             {{el.main.temp}} ℃
+          </div>
         </div>
+      </div>
+        <div *ngIf="loadingError" class="error">
+        <span>{{'loading.error' | translate}}</span>
       </div>
   </div>
 </div>
