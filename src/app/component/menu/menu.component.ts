@@ -88,13 +88,13 @@ export class MenuComponent implements OnInit, AfterContentInit {
       document.documentElement.style.setProperty('--backgroundSecond', '#F4F4F4');
       document.documentElement.style.setProperty('--backgroundThird', '#373737');
     } else if (colour === 'colours') {
-      document.documentElement.style.setProperty('--headerTextColor', '#000000');
-      document.documentElement.style.setProperty('--headerColor', '#EC576B');
-      document.documentElement.style.setProperty('--textColor', '#000000');
+      document.documentElement.style.setProperty('--headerTextColor', '#ffffff');
+      document.documentElement.style.setProperty('--headerColor', '#006992');
+      document.documentElement.style.setProperty('--textColor', '#27476E');
       document.documentElement.style.setProperty('--textColorDiff', '#000000');
       document.documentElement.style.setProperty('--backgroundFirst', '#FFFFFF');
-      document.documentElement.style.setProperty('--backgroundSecond', '#4EC5C1');
-      document.documentElement.style.setProperty('--backgroundThird', '#FF533D');
+      document.documentElement.style.setProperty('--backgroundSecond', '#ffffff');
+      document.documentElement.style.setProperty('--backgroundThird', '#006992');
     } else if (colour === 'coffee') {
       document.documentElement.style.setProperty('--headerTextColor', '#EA5B28');
       document.documentElement.style.setProperty('--headerColor', '#FFFCF2');
