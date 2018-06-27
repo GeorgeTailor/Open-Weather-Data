@@ -41,6 +41,7 @@
             .menu-label {
                 z-index: 3;
                 position: relative;
+                display: block;
             }
 
             .close-btn {
@@ -106,25 +107,24 @@
             &:first-of-type {
                 border-top: none;
             }
-
-            &.growing {
-                flex-grow: 1;
-                position:relative;
-                display: flex;
-                flex-direction: column;
-                button {
-                    background: var(--backgroundThird);
-                    color: var(--backgroundSecond);
-                    border: none;
-                    cursor: pointer;
-                    margin: 5px;
-                    height: 29px;
-                    border-radius: 3px;
-                }
-                .end-item {
-                    position: absolute;
-                    bottom: 40%;
-                }
+        }
+        .growing {
+            flex-grow: 1;
+            position:relative;
+            display: flex;
+            flex-direction: column;
+            button {
+                background: var(--backgroundThird);
+                color: var(--backgroundSecond);
+                border: none;
+                cursor: pointer;
+                margin: 5px;
+                height: 29px;
+                border-radius: 3px;
+            }
+            .end-item {
+                position: absolute;
+                bottom: 40%;
             }
         }
     }

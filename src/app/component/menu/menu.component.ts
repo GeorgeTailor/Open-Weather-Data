@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Output, EventEmitter, AfterContentInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import {TweenMax} from "gsap/TweenMax";
 
 @Component({
   selector: 'app-menu',
@@ -35,6 +36,18 @@ export class MenuComponent implements OnInit, AfterContentInit {
         this.checkCurrentMenuIdx();
       }
     });
+
+    this.staggerMenuItems();
+  }
+
+  staggerMenuItems(){
+    TweenMax.staggerFrom(".menu-label", 0.4, {
+      cycle:{
+        x:function(index){
+          return -index * 20;
+        }
+      }
+    }, 0.1);
   }
 
   ngAfterContentInit() {

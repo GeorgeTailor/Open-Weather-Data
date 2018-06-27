@@ -1,13 +1,13 @@
-<div class="widget-carousel-holder">
-  <div *ngFor="let widgetData of widgets; let index = index">
-    <div *ngIf="index === idx" class="widget-carousel">
-        <div class="arrow-left-holder" (click)="moveCarouselLeft($event)">
-          <div class="arrow-left"></div>
-        </div>
-        <app-weather-widget-big class="widget" [widgetData]="widgetData"></app-weather-widget-big>
-        <div class="arrow-right-holder" (click)="moveCarouselRight($event)">
-          <div class="arrow-right"></div>
-        </div>
+<div class="weatherv2">
+  <div class="widget-carousel-holder" [style.transform]="'translateX(' + idx + '%)'" *ngFor="let widgetData of widgets; let index = index">
+    <div class="widget-carousel">
+      <div class="arrow-left-holder" (click)="moveCarouselLeft($event)">
+        <div class="arrow-left"></div>
+      </div>
+      <app-weather-widget-big class="widget" [widgetData]="widgetData"></app-weather-widget-big>
+      <div class="arrow-right-holder" (click)="moveCarouselRight($event)">
+        <div class="arrow-right"></div>
+      </div>
     </div>
   </div>
 </div>

@@ -51,17 +51,17 @@ export class Weatherv2Component implements OnInit {
 
   moveCarouselLeft(event) {
     if (this.idx === 0) {
-      this.idx = this.widgets.length - 1;
+      this.idx = -(this.widgets.length-1)*100;//this.widgets.length - 1;
     } else {
-      this.idx = this.idx - 1;
+      this.idx += 100;//this.idx - 1;
     }
   }
 
   moveCarouselRight(event) {
-    if (this.idx === this.widgets.length - 1) {
+    if (Math.abs(this.idx / 100) === this.widgets.length - 1) {
       this.idx = 0;
     } else {
-      this.idx = this.idx + 1;
+      this.idx -= 100;// this.idx + 1;
     }
   }
 
