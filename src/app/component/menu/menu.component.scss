@@ -85,17 +85,6 @@
                 color: var(--backgroundThird);
             }
 
-            &.blocked {
-                background-color: var(--backgroundSecond);
-                color: var(--textColor);//var(--textColor);
-                transition: none;
-                &:hover {
-                    background-color: var(--backgroundSecond);
-                    color: var(--textColor);
-                    cursor: initial;
-                }
-            }
-
             &.active-link {
                 background-color: var(--backgroundFirst);
                 // width: 88%;
@@ -106,6 +95,16 @@
 
             &:first-of-type {
                 border-top: none;
+            }
+        }
+        .blocked {
+            background-color: var(--backgroundSecond);
+            color: var(--textColor);//var(--textColor);
+            transition: none;
+            &:hover {
+                background-color: var(--backgroundSecond);
+                color: var(--textColor);
+                cursor: initial;
             }
         }
         .growing {
