@@ -32,7 +32,7 @@
   </footer>
   <div class="forecast" *ngIf="showForecast">
       <app-loader class="loader" *ngIf="loading"></app-loader>
-      <div *ngIf="!loading && !loadingError">
+      <div *ngIf="!loading && !loadingError && forecastData">
         <div *ngFor="let el of forecastData.list" class="forecast-data">
           <div class="forecast-date">
             {{el.dt}}
