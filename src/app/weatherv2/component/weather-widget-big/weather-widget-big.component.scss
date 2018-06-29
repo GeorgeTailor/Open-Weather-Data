@@ -168,6 +168,24 @@
             }
         }
     }
+
+    @media screen and (max-width: 800px) {
+        .widget-header {
+            font-size: 2.3rem;
+        }
+        .widget-content {
+            .widget-content-holder {
+                .temperature {
+                    font-size: 45px;
+                }
+                .weather-details {
+                    .humidity, .wind, .pressure {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
