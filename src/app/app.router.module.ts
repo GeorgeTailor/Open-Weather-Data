@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/weather',
+        redirectTo: '/weather/current_weather',
         pathMatch: 'full'
     },
     { path: '**', component: PageNotFoundComponent }
