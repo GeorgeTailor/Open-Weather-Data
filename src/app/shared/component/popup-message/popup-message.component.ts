@@ -11,7 +11,7 @@ export class PopupMessageComponent implements OnInit {
   @Input('popupTextObject')
   popupTextObject: PopupTextObject;
 
-  @ViewChild('popupBody') modalBody: ElementRef;
+  @ViewChild('popupBody', {static: true}) modalBody: ElementRef;
 
   @Output() closePopupEvent = new EventEmitter<any>();
 
